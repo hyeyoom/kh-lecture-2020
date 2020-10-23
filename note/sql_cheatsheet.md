@@ -2,6 +2,7 @@
 
 - [목차](#목차)
 - [Intro.](#intro)
+- [0. 실습 환경 구축](#0-실습-환경-구축)
 - [1. Cheat Sheet](#1-cheat-sheet)
   - [1.0. 기본 용어](#10-기본-용어)
     - [1.0.1. 테이블](#101-테이블)
@@ -20,6 +21,21 @@
 # Intro.
 
 이 문서는 SQL을 빠르게 사용하기 위한 cheat sheet 입니다.  
+
+# 0. 실습 환경 구축
+
+sqldeveloper는 동일하므로 생략합니다. 환경 구축을 위해 docker를 설치합니다.  
+
+https://hub.docker.com/editions/community/docker-ce-desktop-windows/
+
+설치는 간단하게 next로 해주면 됩니다.  
+설치가 완료되었으면 다음과 같은 명령어를 명령 프롬프트에 복사하고 엔터를 입력해주세요!
+
+```text
+docker run --restart=always -d -p 1521:1521 -p 8080:8080 -e ORACLE_ALLOW_REMOTE=true --name oracle hyeyoom/oracle-xe-11g
+```
+
+이렇게 하면 데이터베이스 및 데이터가 세팅되어 바로 실습이 가능합니다.  
 
 # 1. Cheat Sheet
 
