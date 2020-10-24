@@ -3,6 +3,7 @@
 - [목차](#목차)
 - [Intro.](#intro)
 - [0. 실습 환경 구축](#0-실습-환경-구축)
+  - [0.1. Windows 10이 아닌 경우](#01-windows-10이-아닌-경우)
 - [1. Cheat Sheet](#1-cheat-sheet)
   - [1.0. 기본 용어](#10-기본-용어)
     - [1.0.1. 테이블](#101-테이블)
@@ -31,11 +32,175 @@ https://hub.docker.com/editions/community/docker-ce-desktop-windows/
 설치는 간단하게 next로 해주면 됩니다.  
 설치가 완료되었으면 다음과 같은 명령어를 명령 프롬프트에 복사하고 엔터를 입력해주세요!
 
+명령 프롬프트를 열어봅시다. `윈도우키 + r`을 눌러주면 다음과 같은 창이 등장합니다. 그리고 cmd를 입력하고 엔터.  
+
+![층](assets/cmd.png)
+
+여기에 다음을 복사해봅시다. 
+
 ```text
 docker run --restart=always -d -p 1521:1521 -p 8080:8080 -e ORACLE_ALLOW_REMOTE=true --name oracle hyeyoom/oracle-xe-11g
 ```
 
+다음과 같이 출력되면 성공한 것입니다.  
+
+![dockerrun](assets/dockerrun.png)
+
+출력되는 해시값은 일치하지 않아도 상관 없습니다.  
 이렇게 하면 데이터베이스 및 데이터가 세팅되어 바로 실습이 가능합니다.  
+
+## 0.1. Windows 10이 아닌 경우
+
+도커를 설치하면 좋겠지만 7을 위해 지원하던 프로젝트(docker toolbox)는 deprecated 상태입니다.  
+
+https://docs.docker.com/docker-for-windows/docker-toolbox/
+
+따라서 도커는 사용하지 않고 다음 링크에서 데이터베이스와 데이터베이스 조회를 위한 툴인 SQL Developer를 다운로드 받습니다.  
+
+11gXEr2
+- https://www.oracle.com/database/technologies/xe-prior-releases.html
+
+SQL Developer
+- https://www.oracle.com/tools/downloads/sqldev-downloads.html
+
+데이터베이스는 next만 눌러주면 됩니다.  
+
+![비번내놔](assets/install-pw-required.png)
+
+여기서는 비밀번호를 `oracle`로 입력하면 됩니다. 그리고 next를 쭉 눌러 줍니다.  
+
+완료가 되었다면 `명령 프롬프트`를 열어 줍니다. `윈도우키 + r`을 눌러주면 다음과 같은 창이 등장합니다.  
+
+![층](assets/cmd.png)
+
+이제 여기에 다음과 같이 입력합니다.  
+
+```text
+sqlplus system/oracle
+```
+
+이미지로 보면 다음과 같습니다.  
+
+![로그인](assets/loginsql.png)
+
+그림처럼 `SQL>`가 보이고 커서가 깜빡거리면 잘 된거에요!  
+시험삼아 명령어도 입력해봅니다.  
+
+```text
+SELECT 1 FROM dual;
+```
+
+![select1fromdual](assets/select1fromdual.png)
+
+다음과 같이 나왔다면 아주 정상적으로 설치가 된 것입니다.  
+
+SQL Developer는 간단하게 압축만 풀어주고 실행을 해봅시다.  
+
+![sqldev](assets/sqldev.png)
+
+실행이 완료되면 이제 접속 정보를 만들어 봅시다. 다음과 같이 절차를 따라해봅시다.
+
+![create](assets/create-new-db.png)
+
+![conninfo](assets/conninfo.png)
+
+테스트 성공하면 접속을 클릭하면 완료가 됩니다.  
+
+그리고 다음 sql를 붙여 넣어봅시다. 제대로 복사해주세요!  
+
+```sql
+DROP TABLE DEPT;
+CREATE TABLE DEPT
+       (DEPTNO NUMBER(2) CONSTRAINT PK_DEPT PRIMARY KEY,
+	DNAME VARCHAR2(14) ,
+	LOC VARCHAR2(13) ) ;
+DROP TABLE EMP;
+CREATE TABLE EMP
+       (EMPNO NUMBER(4) CONSTRAINT PK_EMP PRIMARY KEY,
+	ENAME VARCHAR2(10),
+	JOB VARCHAR2(9),
+	MGR NUMBER(4),
+	HIREDATE DATE,
+	SAL NUMBER(7,2),
+	COMM NUMBER(7,2),
+	DEPTNO NUMBER(2) CONSTRAINT FK_DEPTNO REFERENCES DEPT);
+INSERT INTO DEPT VALUES
+	(10,'ACCOUNTING','NEW YORK');
+INSERT INTO DEPT VALUES (20,'RESEARCH','DALLAS');
+INSERT INTO DEPT VALUES
+	(30,'SALES','CHICAGO');
+INSERT INTO DEPT VALUES
+	(40,'OPERATIONS','BOSTON');
+INSERT INTO EMP VALUES
+(7369,'SMITH','CLERK',7902,to_date('17-12-1980','dd-mm-yyyy'),800,NULL,20);
+INSERT INTO EMP VALUES
+(7499,'ALLEN','SALESMAN',7698,to_date('20-2-1981','dd-mm-yyyy'),1600,300,30);
+INSERT INTO EMP VALUES
+(7521,'WARD','SALESMAN',7698,to_date('22-2-1981','dd-mm-yyyy'),1250,500,30);
+INSERT INTO EMP VALUES
+(7566,'JONES','MANAGER',7839,to_date('2-4-1981','dd-mm-yyyy'),2975,NULL,20);
+INSERT INTO EMP VALUES
+(7654,'MARTIN','SALESMAN',7698,to_date('28-9-1981','dd-mm-yyyy'),1250,1400,30);
+INSERT INTO EMP VALUES
+(7698,'BLAKE','MANAGER',7839,to_date('1-5-1981','dd-mm-yyyy'),2850,NULL,30);
+INSERT INTO EMP VALUES
+(7782,'CLARK','MANAGER',7839,to_date('9-6-1981','dd-mm-yyyy'),2450,NULL,10);
+INSERT INTO EMP VALUES
+(7788,'SCOTT','ANALYST',7566,to_date('13-JUL-87')-85,3000,NULL,20);
+INSERT INTO EMP VALUES
+(7839,'KING','PRESIDENT',NULL,to_date('17-11-1981','dd-mm-yyyy'),5000,NULL,10);
+INSERT INTO EMP VALUES
+(7844,'TURNER','SALESMAN',7698,to_date('8-9-1981','dd-mm-yyyy'),1500,0,30);
+INSERT INTO EMP VALUES
+(7876,'ADAMS','CLERK',7788,to_date('13-JUL-87')-51,1100,NULL,20);
+INSERT INTO EMP VALUES
+(7900,'JAMES','CLERK',7698,to_date('3-12-1981','dd-mm-yyyy'),950,NULL,30);
+INSERT INTO EMP VALUES
+(7902,'FORD','ANALYST',7566,to_date('3-12-1981','dd-mm-yyyy'),3000,NULL,20);
+INSERT INTO EMP VALUES
+(7934,'MILLER','CLERK',7782,to_date('23-1-1982','dd-mm-yyyy'),1300,NULL,10);
+DROP TABLE BONUS;
+CREATE TABLE BONUS
+	(
+	ENAME VARCHAR2(10)	,
+	JOB VARCHAR2(9)  ,
+	SAL NUMBER,
+	COMM NUMBER
+	) ;
+DROP TABLE SALGRADE;
+CREATE TABLE SALGRADE
+      ( GRADE NUMBER,
+	LOSAL NUMBER,
+	HISAL NUMBER );
+INSERT INTO SALGRADE VALUES (1,700,1200);
+INSERT INTO SALGRADE VALUES (2,1201,1400);
+INSERT INTO SALGRADE VALUES (3,1401,2000);
+INSERT INTO SALGRADE VALUES (4,2001,3000);
+INSERT INTO SALGRADE VALUES (5,3001,9999);
+COMMIT;
+```
+
+제대로 붙여 넣었다면 다음과 같이 나오면 돼요!  
+
+![script](assets/script.png)
+
+실행을 하기 위해 `F5`를 누르거나 다음 화면과 같이 버튼을 눌러주세요!  
+
+![btnrun](assets/btnrun.png)
+
+![cc](assets/commitcomplete.png)
+
+제대로 입력했는지 확인해보기 위해 다음과 같은 쿼리를 작성해봅시다.  
+
+```sql
+SELECT * FROM emp;
+SELECT * FROM dept;
+SELECT * FROM salgrade;
+```
+
+커서를 이동하면서 line by line으로 실행을 해봅시다. 실행은 `ctrl + 엔터`를 입력하면 됩니다.  
+
+테이블이 제대로 출력된다면 성공한 것입니다.  
 
 # 1. Cheat Sheet
 
