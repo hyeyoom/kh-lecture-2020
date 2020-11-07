@@ -1,10 +1,50 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+    <style>
+        #ct-h1 ~ ul {
+            color: red;
+        }
+        .outer {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+
+        .inner:hover, .outer:hover {
+            background-color: green;
+        }
+
+        .inner {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
 </head>
 <body>
-    <label><input type="radio" name="selection"/>처신 잘 하라고</label><br/>
-    <label><input type="radio" name="selection"/>도우너 어서오고</label><br/>
-    <label><input type="radio" name="selection"/>킹받게 하잖아!</label>
+    <div class="outer">
+        <div class="inner"></div>
+    </div>
+    <div id="container">
+        <h1 id="ct-h1">제목같은거</h1>
+        <p>paragraph 같은거</p>
+        <ul>
+            <li> 1뎁스 - A
+                <ul>
+                    <li>2뎁스</li>
+                    <li>2뎁스</li>
+                    <h1>노뜬금헤딩1</h1>
+                </ul>
+            </li>
+            <li> 2뎁스 - B
+                <ul>
+                    <li>2뎁스 - 1</li>
+                    <li>2뎁스 - 2</li>
+                    <li>2뎁스 - 3</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
 </body>
 </html>
