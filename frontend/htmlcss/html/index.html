@@ -1,50 +1,30 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+    <title>케케..</title>
     <style>
-        #ct-h1 ~ ul {
-            color: red;
+        .box {
+            width: 100px;
+            height: 100px;
+            display: inline;
         }
-        .outer {
-            width: 200px;
-            height: 200px;
+
+        .red {
+            background-color: red;
+        }
+
+        .blue {
             background-color: blue;
         }
 
-        .inner:hover, .outer:hover {
+        .green {
             background-color: green;
-        }
-
-        .inner {
-            width: 100px;
-            height: 100px;
-            background-color: red;
         }
     </style>
 </head>
 <body>
-    <div class="outer">
-        <div class="inner"></div>
-    </div>
-    <div id="container">
-        <h1 id="ct-h1">제목같은거</h1>
-        <p>paragraph 같은거</p>
-        <ul>
-            <li> 1뎁스 - A
-                <ul>
-                    <li>2뎁스</li>
-                    <li>2뎁스</li>
-                    <h1>노뜬금헤딩1</h1>
-                </ul>
-            </li>
-            <li> 2뎁스 - B
-                <ul>
-                    <li>2뎁스 - 1</li>
-                    <li>2뎁스 - 2</li>
-                    <li>2뎁스 - 3</li>
-                </ul>
-            </li>
-        </ul>
-    </div>
+    <div class="box red">1</div>
+    <div class="box blue">2</div>
+    <div class="box green">3</div>
 </body>
 </html>
