@@ -1,15 +1,6 @@
-function countdown(startAt) {
-    let s = startAt
-    function decrement() {
-        return s--
-    }
-    return decrement
-}
+const message = (function() {
+    const private = '있어보이는데이터'
+    return private
+})()
 
-a = countdown(10)
-b = countdown(10)
-
-console.log(a())
-console.log(a())
-console.log(a())
-console.log(b())
+console.log(message)
