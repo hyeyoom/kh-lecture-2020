@@ -1,15 +1,41 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+    <title>Test</title>
     <style>
         body {
-            background-image: url('images/bg.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            height: 900px;
+            background-color: #cccccc;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            border: 5px solid #000;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    
+    <div class="box"></div>
+    <script>
+        const box = document.querySelector('.box')
+        const moveHandler = e => {
+            box.style.backgroundColor = 'red'
+            box.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`
+        }
+
+        box.addEventListener('mousedown', e => {
+            document.addEventListener('mousemove', moveHandler) 
+        })
+
+        document.addEventListener('mouseup', () => {
+            document.removeEventListener('mousemove', moveHandler)
+        })
+    </script>
 </body>
 </html>
