@@ -1,16 +1,22 @@
 # 목차
 
 - [목차](#목차)
-- [1. 리스트](#1-리스트)
-- [2. 스택/큐](#2-스택큐)
-- [3. 힙](#3-힙)
-- [4. 정렬](#4-정렬)
+- [1. ADT(Abstract Data Type)](#1-adtabstract-data-type)
+- [2. List & Linked List](#2-list--linked-list)
+- [3. Stack & Queue](#3-stack--queue)
+- [4. Sorting](#4-sorting)
+- [5. Tree](#5-tree)
+- [6. Binary Tree & Binary Search Tree](#6-binary-tree--binary-search-tree)
 
-# 1. 리스트
+# 1. ADT(Abstract Data Type)
 
-# 2. 스택/큐
+# 2. List & Linked List
 
-# 3. 힙
+# 3. Stack & Queue
 
-# 4. 정렬
+# 4. Sorting
+
+# 5. Tree
+
+# 6. Binary Tree & Binary Search Tree
 
