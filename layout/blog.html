@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <title>Awesome blog design</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.6;
+        }
+
+        .hero {
+            background-image: url('./img/bg.jpeg'),  radial-gradient(#ccc, #111);
+            background-blend-mode: multiply;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-position: center center;
+            height: 100vh;
+            color: white;
+            padding-top: 35rem;
+        }
+
+        h1, p, blockquote {
+            margin: 0;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 65em;
+            margin: 0 auto;
+        }
+
+        .primary-title {
+            font-size: clamp(3rem, calc(5vw + 1rem), 4.5rem);
+            cursor: pointer;
+        }
+
+        .article-spacing {
+            margin-top: 5rem;
+            width: 40%;
+        }
+
+        .article-spacing > * {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .article-spacing > h1 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-spacing > blockquote {
+            padding-left: 1rem;
+            border-left: 5px solid black;
+            background-color: #f5f5f5;
+        }
+
+        .article-spacing > p, blockquote {
+            font-size: 1.3rem;
+            text-indent: 1rem;
+            margin-bottom: 2.4rem;
+        }
+
+        .article-spacing > p:hover,
+        .article-spacing > blockquote:hover {
+            background-color: #f5f5f5;
+        }
+
+        .image-box {
+            cursor: pointer;
+            margin-bottom: 1.2rem;
+            text-align: center;
+        }
+
+        .image-box > p {
+            color: #555555;
+        }
+
+        .image-box > img {
+            filter: brightness(75%);
+            width: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .image-box:not(.blur) > img {
+            filter: none;
+        }
+
+        .image-box > img:hover {
+            filter: none;
+        }
+
+        .footer {
+            background-color: rgba(0, 0, 0, 0.85);
+        }
+
+        .info-container {
+            display: flex;
+            color: white;
+            text-align: center;
+        }
+
+        .info-container > .info-container-item {
+            flex: 1;
+        }
+
+        .info-container-item > p, h1 {
+            margin: auto 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="container">
+            <h1 class="primary-title">Starbucks reserve roastery</h1>
+            <p>눈에 보이지도 않는 바이러스 때문에 여행도 못가고 뭐냐</p>
+            <p>Sun Nov 15 2020 00:35:31 GMT+0900</p>
+        </div>
+    </header>
+    <main>
+        <article>
+            <div class="container article-spacing">
+                <h1>🏭Reminiscenses of Seattle</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pharetra dapibus mollis. Vestibulum varius odio nisl, vitae lacinia enim ultricies consectetur. Nam ullamcorper posuere erat, quis viverra leo tincidunt finibus. Nam vel ultrices ligula. Suspendisse et libero eu lectus fermentum volutpat. Phasellus tristique, augue quis varius dignissim, enim neque pulvinar lacus, eget lobortis urna odio et elit. Nulla facilisi. Nam lorem neque, consequat sed imperdiet id, viverra sed nisi. Nunc a neque quis nisl euismod volutpat molestie et tellus. Morbi nibh erat, pellentesque vitae orci eget, vulputate aliquet tellus. Suspendisse neque elit, ultrices eget nisl fringilla, congue consequat tellus. Morbi a nulla et mi dignissim bibendum maximus in risus. Phasellus aliquam nisl quis suscipit venenatis.</p>
+                <p>Morbi cursus dictum eleifend. Vivamus nec congue quam, eu suscipit purus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris eget cursus ex, nec varius dolor. Vestibulum laoreet condimentum condimentum. Sed sit amet lorem mi. Donec mollis ligula sed risus elementum aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam egestas semper sapien non ultrices. Mauris sollicitudin lobortis neque sed accumsan. Nam non urna eget tellus pretium egestas. Donec imperdiet nunc orci, a facilisis augue iaculis eget. Vestibulum orci justo, laoreet nec porttitor eu, egestas a nulla. Morbi ultrices, ipsum id blandit blandit, elit mi ultrices nisi, ut egestas arcu orci at ipsum.</p>
+                <blockquote>
+                    <p>적셔...! (크으으)</p>
+                    <p>니들은 이런거 하지 마라.. (허세)</p>
+                </blockquote>
+                <p>Aenean ultrices ultrices eleifend. Suspendisse accumsan, nunc non sodales bibendum, magna neque ornare magna, id lacinia nibh risus id ligula. Suspendisse ultricies condimentum sollicitudin. In at congue orci. Quisque non justo rhoncus, bibendum nisl vel, eleifend purus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis quis risus at tortor semper accumsan. Nunc iaculis lorem nec sagittis pretium. Etiam laoreet ullamcorper erat, ut dictum sem ultrices in. Sed sit amet posuere quam.</p>
+                <h1>✔️ESTA 꼭 챙기렴! 나처럼 티켓에 SSSS 찍히지 말고!</h1>
+                <p>나는 1주일 전에 챙겨서 테러 검문을 받았단다! 궁금해서 이게 뭐하는거냐고 물어봤는데 화학 시료 검출지래!</p>
+                <p>무엇을 피가 피고 것이다. 구할 생명을 위하여, 않는 철환하였는가? 주며, 봄날의 이것을 간에 타오르고 반짝이는 청춘에서만 피고 같으며, 있다. 가는 물방아 투명하되 소담스러운 청춘 인생에 오직 아니다. 가치를 곧 사는가 같으며, 든 이것이다. 이상, 크고 아름답고 충분히 이것이야말로 피가 힘차게 힘있다. 꽃 얼음 가는 어디 살 아름다우냐? 위하여, 못할 있는 구할 그들은 위하여서. 생생하며, 타오르고 못할 크고 길을 사라지지 천고에 있다. 가슴이 시들어 새가 사라지지 끓는다.</p>
+                <div class="image-box">
+                    <img src="./img/옴뇸뇸.jpeg"/>
+                    <p>[옴뇸뇸 ㅈㅁㅌ]</p>
+                </div>
+                <p>무엇을 피가 피고 것이다. 구할 생명을 위하여, 않는 철환하였는가? 주며, 봄날의 이것을 간에 타오르고 반짝이는 청춘에서만 피고 같으며, 있다. 가는 물방아 투명하되 소담스러운 청춘 인생에 오직 아니다. 가치를 곧 사는가 같으며, 든 이것이다. 이상, 크고 아름답고 충분히 이것이야말로 피가 힘차게 힘있다. 꽃 얼음 가는 어디 살 아름다우냐? 위하여, 못할 있는 구할 그들은 위하여서. 생생하며, 타오르고 못할 크고 길을 사라지지 천고에 있다. 가슴이 시들어 새가 사라지지 끓는다.</p>
+                <p>무엇을 피가 피고 것이다. 구할 생명을 위하여, 않는 철환하였는가? 주며, 봄날의 이것을 간에 타오르고 반짝이는 청춘에서만 피고 같으며, 있다. 가는 물방아 투명하되 소담스러운 청춘 인생에 오직 아니다. 가치를 곧 사는가 같으며, 든 이것이다. 이상, 크고 아름답고 충분히 이것이야말로 피가 힘차게 힘있다. 꽃 얼음 가는 어디 살 아름다우냐? 위하여, 못할 있는 구할 그들은 위하여서. 생생하며, 타오르고 못할 크고 길을 사라지지 천고에 있다. 가슴이 시들어 새가 사라지지 끓는다.</p>
+                <p>무엇을 피가 피고 것이다. 구할 생명을 위하여, 않는 철환하였는가? 주며, 봄날의 이것을 간에 타오르고 반짝이는 청춘에서만 피고 같으며, 있다. 가는 물방아 투명하되 소담스러운 청춘 인생에 오직 아니다. 가치를 곧 사는가 같으며, 든 이것이다. 이상, 크고 아름답고 충분히 이것이야말로 피가 힘차게 힘있다. 꽃 얼음 가는 어디 살 아름다우냐? 위하여, 못할 있는 구할 그들은 위하여서. 생생하며, 타오르고 못할 크고 길을 사라지지 천고에 있다. 가슴이 시들어 새가 사라지지 끓는다.</p>
+                <p>무엇을 피가 피고 것이다. 구할 생명을 위하여, 않는 철환하였는가? 주며, 봄날의 이것을 간에 타오르고 반짝이는 청춘에서만 피고 같으며, 있다. 가는 물방아 투명하되 소담스러운 청춘 인생에 오직 아니다. 가치를 곧 사는가 같으며, 든 이것이다. 이상, 크고 아름답고 충분히 이것이야말로 피가 힘차게 힘있다. 꽃 얼음 가는 어디 살 아름다우냐? 위하여, 못할 있는 구할 그들은 위하여서. 생생하며, 타오르고 못할 크고 길을 사라지지 천고에 있다. 가슴이 시들어 새가 사라지지 끓는다.</p>
+                <p>무엇을 피가 피고 것이다. 구할 생명을 위하여, 않는 철환하였는가? 주며, 봄날의 이것을 간에 타오르고 반짝이는 청춘에서만 피고 같으며, 있다. 가는 물방아 투명하되 소담스러운 청춘 인생에 오직 아니다. 가치를 곧 사는가 같으며, 든 이것이다. 이상, 크고 아름답고 충분히 이것이야말로 피가 힘차게 힘있다. 꽃 얼음 가는 어디 살 아름다우냐? 위하여, 못할 있는 구할 그들은 위하여서. 생생하며, 타오르고 못할 크고 길을 사라지지 천고에 있다. 가슴이 시들어 새가 사라지지 끓는다.</p>
+            </div>
+        </article>
+    </main>
+    <footer>
+        <div class="footer">
+            <div class="container info-container">
+                <div class="info-container-item">
+                    <h1>Learn more.</h1>
+                    <p>Open platform blahblah.</p>
+                </div>
+                <div class="info-container-item">
+                    <h1>Learn more.</h1>
+                    <p>Open platform blahblah.</p>
+                </div>
+                <div class="info-container-item">
+                    <h1>Learn more.</h1>
+                    <p>Open platform blahblah.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
