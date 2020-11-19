@@ -8,30 +8,29 @@ public class ClientManager {
 
     private static final ClientManager INSTANCE = new ClientManager();
 
-    private final List<Client> clients = new ArrayList<>();
+    private final List<Client> list = new ArrayList<>();
 
     private ClientManager() {
+        //
     }
 
     public static ClientManager getInstance() {
         return INSTANCE;
     }
 
-    private void addClient(Socket client) {
-        final Client clientThread = new Client(client);
-        clients.add(clientThread);
-        clientThread.start();
-    }
-
     public static void registerClient(Socket client) {
         getInstance().addClient(client);
     }
 
-    public void broadcast(String message) {
-        System.out.println("보낼 메세지: " + message);
-        for (Client client : clients) {
-            client.send(String.format("[%s]: %s", client.getIp(), message));
-        }
+    private void addClient(Socket socket) {
+        final Client client = new Client(socket);
+        list.add(client);
+        client.start();
+    }
 
+    public void broadcast(String message) {
+        for (Client client : list) {
+            client.send(message);
+        }
     }
 }
