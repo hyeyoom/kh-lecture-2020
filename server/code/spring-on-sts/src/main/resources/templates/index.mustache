@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>인덱스 페이지!</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"
+        integrity="sha512-DZqqY3PiOvTP9HkjIWgjO6ouCbq+dxqWoJZ/Q+zPYNHmlnI2dQnbJ5bxAHpAMw+LXRm4D72EIRXzvcHQtE8/VQ=="
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <input type="text" id="username" name="name" />
+    <input type="email" id="usermail" name="email" />
+    <button id="sendToServer">서버에 전송</button>
+    <h1 id="messageFromServer"></h1>
+    <script>
+        const btn = document.getElementById('sendToServer');
+        btn.addEventListener('click', () => {
+            const name = document.getElementById('username');
+            const mail = document.getElementById('usermail');
+            const user = {
+                name: name.value,
+                email: mail.value
+            }
+            axios
+                .post('/users', user)
+                .then(res => {
+                    const msg = document.getElementById('messageFromServer');
+                    msg.innerText = res.data.message
+                })
+
+        });
+    </script>
+</body>
+
+</html>

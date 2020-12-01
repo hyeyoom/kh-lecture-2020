@@ -1,0 +1,56 @@
+<!--
+* 모든항목선택 checkbox를 선택하면 
+  취미관련 checkbox를 모두 선택하거나 해제를 하고자 하는 코드입니다.
+  하지만 모두 선택 또는 해제가 적용되지 않았습니다.  
+  적용되지 않은 이유와 해결방법을 작성하세요.
+-->
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>전체선택</title>
+</head>
+
+<body>
+    <input type="checkbox" name="all" id="all" value="all">모든항목 선택
+    <p>
+        취미선택 :
+        <input type="checkbox" name="hobby" value="피아노"> 피아노
+        <input type="checkbox" name="hobby" value="게임"> 게임
+        <input type="checkbox" name="hobby" value="테니스"> 테니스
+        <input type="checkbox" name="hobby" value="등산"> 등산
+    </p>
+    <script>
+        function isAllChecked() {
+            const checkList = document.getElementsByName('hobby');
+            const len = checkList.length;
+            for (var i = 0; i < len; i++) {
+                if (!checkList[i].checked) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        var all = document.getElementById("all");
+        all.addEventListener("click", function () {
+            var chks = document.getElementsByName("hobby");
+            for (var i = 0; i < chks.length; i++) {
+                chks[i].checked = all.checked;
+            }
+        });
+        const checkList = document.getElementsByName('hobby');
+        const len = checkList.length;
+        for (var i = 0; i < len; i++) {
+            checkList[i].addEventListener('click', () => {
+                if (!isAllChecked()) {
+                    all.checked = false;
+                }
+            })
+        }
+
+    </script>
+</body>
+
+</html>​

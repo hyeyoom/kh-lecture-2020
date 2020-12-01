@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE 
+	mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.github.hyeyoom.repository.UserRepository">
+	<insert 
+		id="createUser"
+		parameterType="com.github.hyeyoom.domain.User">
+		INSERT 
+			INTO users(id, email, password, joinedDate)
+		  VALUES (#{id}, #{email}, #{password}, #{joinedDate})			
+	</insert>
+</mapper>
